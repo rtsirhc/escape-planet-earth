@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌍 Escape Planet Earth — Teacher Dashboard</title>
+  <link rel="stylesheet" href="css/shared.css">
+  <link rel="stylesheet" href="css/teacher.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <div class="teacher-container">
+    <!-- Header -->
+    <div class="teacher-header">
+      <h1>🌍 Escape Planet Earth</h1>
+      <p class="subtitle">Teacher Dashboard</p>
+    </div>
+
+    <!-- Setup Section (before game starts) -->
+    <div id="setup-section" class="setup-section">
+      <div class="card">
+        <p class="text-center text-secondary mb-2">Students: scan the QR code or enter the room code</p>
+        <div class="text-center">
+          <div class="room-code-display" id="room-code-display">------</div>
+        </div>
+        <div class="text-center">
+          <div class="qr-container" id="qr-container"></div>
+        </div>
+        <p class="join-url text-center" id="join-url"></p>
+      </div>
+
+      <div class="teams-section" id="waiting-teams">
+        <div class="teams-header">
+          <h2>👥 Teams Joined</h2>
+          <span class="teams-count" id="teams-count">0 teams</span>
+        </div>
+        <div id="waiting-teams-list">
+          <p class="no-teams">Waiting for teams to join...</p>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <button class="btn btn--large start-btn" id="start-btn" disabled onclick="startGame()">
+          🚀 Start Game
+        </button>
+        <p class="text-secondary mt-1" id="start-hint">Need at least 1 team to start</p>
+      </div>
+    </div>
+
+    <!-- Active Game Section -->
+    <div id="game-section" class="hidden">
+      <div class="teams-section">
+        <div class="teams-header">
+          <h2>🏆 Leaderboard</h2>
+          <span class="teams-count" id="active-teams-count">0 teams</span>
+        </div>
+        <div id="leaderboard"></div>
+      </div>
+
+      <div class="new-game-section">
+        <button class="btn btn--danger" onclick="newGame()">🔄 New Game</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/supabase-config.js"></script>
+  <script src="js/teacher.js"></script>
+</body>
+</html>

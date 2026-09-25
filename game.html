@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Escape Planet Earth</title>
+  <link rel="stylesheet" href="css/shared.css">
+  <link rel="stylesheet" href="css/student.css">
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <!-- Sound Toggle -->
+  <div id="sound-toggle" class="sound-toggle" onclick="toggleSound()">🔊</div>
+
+  <!-- Timer Bar (Fixed Top) -->
+  <div id="timer-bar" class="timer-bar hidden">
+    <div>
+      <span id="timer-time" class="timer-time">0:00</span>
+      <span id="timer-penalty" class="timer-penalty hidden">(+0:00)</span>
+    </div>
+    <div id="timer-room" class="timer-room"></div>
+  </div>
+
+  <!-- Main Container for dynamic injection -->
+  <div class="container student-main" id="main-container">
+    <!-- Content injected via JS -->
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/sound.js"></script>
+  <script src="js/game-data.js"></script>
+  <script src="js/supabase-config.js"></script>
+  <script src="js/student.js"></script>
+</body>
+</html>
