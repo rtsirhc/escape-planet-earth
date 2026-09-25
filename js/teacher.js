@@ -29,8 +29,8 @@ async function initDashboard() {
     // Generate QR
     new QRCode(document.getElementById('qr-container'), {
       text: url,
-      width: 250,
-      height: 250,
+      width: 180,
+      height: 180,
       colorDark : "#0a0e17",
       colorLight : "#ffffff",
       correctLevel : QRCode.CorrectLevel.H

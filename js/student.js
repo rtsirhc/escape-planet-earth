@@ -90,7 +90,7 @@ window.joinGame = async function() {
     }
   } catch (e) {
     console.error(e);
-    errEl.innerText = "An error occurred connecting to the game.";
+    errEl.innerText = "Error: " + (e.message || JSON.stringify(e));
   }
 }
 
