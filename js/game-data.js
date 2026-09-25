@@ -12,7 +12,7 @@ const GAME_DATA = {
       codeWord: 'CROPS',
       codeHint1: { text: 'Think about what a farmer grows in the field...', penaltyMs: 60000 },
       codeHint2: { text: 'The word starts with C and means plants that farmers grow for food.', penaltyMs: 300000 },
-      finalLetterInstruction: 'Take the 4th letter of CROPS',
+      finalLetterInstruction: 'Take the 4th letter of your code word.',
       finalLetterPosition: 3,
       questions: [
         {
@@ -20,9 +20,9 @@ const GAME_DATA = {
           text: 'What does sustainability mean?',
           type: 'multiple-choice',
           options: [
-            "Use everything now and don't think about the future",
-            'Use resources carefully so there is enough for tomorrow',
-            'Stop all factories and industry'
+            'Finding new resources on other planets',
+            'Using resources carefully so there is enough for the future',
+            'Stopping all use of natural resources so the earth heals'
           ],
           correctIndex: 1,
           correctLetter: 'C',
@@ -35,7 +35,7 @@ const GAME_DATA = {
           id: 'r1q2',
           text: 'The Triple P stands for People, Planet, and ___.',
           type: 'multiple-choice',
-          options: ['Pollution', 'Prosperity', 'Progress'],
+          options: ['Population', 'Prosperity', 'Production'],
           correctIndex: 1,
           correctLetter: 'R',
           fakeLetter: 'Z',
@@ -48,8 +48,8 @@ const GAME_DATA = {
           text: 'Which is an example of the "People" part of sustainability?',
           type: 'multiple-choice',
           options: [
-            'Protecting forests',
-            'Creating new businesses',
+            'Creating more jobs by cutting down old forests',
+            'Protecting endangered animal species',
             'Giving everyone access to education and safety'
           ],
           correctIndex: 2,
@@ -63,7 +63,7 @@ const GAME_DATA = {
           id: 'r1q4',
           text: 'A resource is something we take from nature. Which of these is a natural resource?',
           type: 'multiple-choice',
-          options: ['A smartphone', 'Fresh water', 'A car'],
+          options: ['A solar panel', 'Fresh water', 'Recycled plastic'],
           correctIndex: 1,
           correctLetter: 'P',
           fakeLetter: 'V',
@@ -73,13 +73,18 @@ const GAME_DATA = {
         },
         {
           id: 'r1q5',
-          text: 'True or False: A sustainable decision should help People, Planet, AND Prosperity together.',
-          type: 'true-false',
-          correctAnswer: true,
+          text: 'Which statement about sustainability is true?',
+          type: 'multiple-choice',
+          options: [
+            'It focuses only on protecting the environment',
+            'It requires balancing People, Planet, and Prosperity together',
+            'It means businesses must not make any profit'
+          ],
+          correctIndex: 1,
           correctLetter: 'S',
           fakeLetter: 'W',
           letterExplanation: "Your letter is S — Sustainability means all three P's working together!",
-          hint1: { text: 'Think about the word "AND" in the question.', penaltyMs: 60000 },
+          hint1: { text: 'Think about how all three pillars must work together.', penaltyMs: 60000 },
           hint2: { text: 'Sustainability means ALL THREE must work together, not just one.', penaltyMs: 300000 }
         }
       ]
@@ -92,7 +97,7 @@ const GAME_DATA = {
       codeWord: 'SOLAR',
       codeHint1: { text: 'Think about energy that comes from the sun...', penaltyMs: 60000 },
       codeHint2: { text: 'This word starts with S and is a type of clean, renewable energy from the sun.', penaltyMs: 300000 },
-      finalLetterInstruction: 'Take the 3rd letter of SOLAR',
+      finalLetterInstruction: 'Take the 3rd letter of your code word.',
       finalLetterPosition: 2,
       questions: [
         {
@@ -100,9 +105,9 @@ const GAME_DATA = {
           text: 'What is the difference between weather and climate?',
           type: 'multiple-choice',
           options: [
-            'Weather is hot, climate is cold',
-            'Weather changes every day; climate is the long-term pattern',
-            'Weather is about wind, climate is about rain'
+            'Weather is measured by temperature; climate is measured by rainfall',
+            'Weather is what happens today; climate is the pattern over many years',
+            'Weather changes every year; climate changes every day'
           ],
           correctIndex: 1,
           correctLetter: 'S',
@@ -115,7 +120,7 @@ const GAME_DATA = {
           id: 'r2q2',
           text: 'Which of these is a HUMAN cause of climate change?',
           type: 'multiple-choice',
-          options: ['Volcanic eruptions', 'Burning fossil fuels', 'Earthquakes'],
+          options: ['Holes in the ozone layer', 'Burning fossil fuels', 'The natural greenhouse effect'],
           correctIndex: 1,
           correctLetter: 'O',
           fakeLetter: 'J',
@@ -127,7 +132,7 @@ const GAME_DATA = {
           id: 'r2q3',
           text: 'Which gas is a greenhouse gas that comes from cows and agriculture?',
           type: 'multiple-choice',
-          options: ['Oxygen', 'Nitrogen', 'Methane'],
+          options: ['Carbon monoxide', 'Oxygen', 'Methane'],
           correctIndex: 2,
           correctLetter: 'L',
           fakeLetter: 'F',
@@ -139,7 +144,7 @@ const GAME_DATA = {
           id: 'r2q4',
           text: 'What happens when glaciers melt because of global warming?',
           type: 'multiple-choice',
-          options: ['The air gets cleaner', 'Sea levels rise', 'Forests grow faster'],
+          options: ['The oceans become too hot for fish', 'Sea levels rise', 'The world has less drinking water'],
           correctIndex: 1,
           correctLetter: 'A',
           fakeLetter: 'U',
@@ -151,7 +156,7 @@ const GAME_DATA = {
           id: 'r2q5',
           text: 'Cutting down large areas of trees is called ___.',
           type: 'multiple-choice',
-          options: ['Reforestation', 'Agriculture', 'Deforestation'],
+          options: ['Polluting the soil', 'Urbanization', 'Deforestation'],
           correctIndex: 2,
           correctLetter: 'R',
           fakeLetter: 'M',
@@ -169,7 +174,7 @@ const GAME_DATA = {
       codeWord: 'WASTE',
       codeHint1: { text: 'Think about what we throw away that hurts the environment...', penaltyMs: 60000 },
       codeHint2: { text: 'The word starts with W and means things we throw in the garbage that damage nature.', penaltyMs: 300000 },
-      finalLetterInstruction: 'Take the 2nd letter of WASTE',
+      finalLetterInstruction: 'Take the 2nd letter of your code word.',
       finalLetterPosition: 1,
       questions: [
         {
@@ -177,9 +182,9 @@ const GAME_DATA = {
           text: 'What is environmental degradation?',
           type: 'multiple-choice',
           options: [
-            'Building new parks and gardens',
-            'The destruction of the environment by damaging air, water, and soil',
-            'Studying nature and animals'
+            'When animals move to different habitats',
+            'The destruction of nature by damaging air, water, and soil',
+            'The natural process of old trees dying'
           ],
           correctIndex: 1,
           correctLetter: 'W',
@@ -193,9 +198,9 @@ const GAME_DATA = {
           text: 'What is biodiversity?',
           type: 'multiple-choice',
           options: [
-            'A type of renewable energy',
+            'A special type of eco-friendly farming',
             'The variety of plant and animal life on Earth',
-            'A way to recycle plastic'
+            'The study of biology in schools'
           ],
           correctIndex: 1,
           correctLetter: 'A',
@@ -209,9 +214,9 @@ const GAME_DATA = {
           text: 'How does deforestation affect animals?',
           type: 'multiple-choice',
           options: [
-            'It gives them more food',
-            'It destroys their habitats',
-            'It makes them stronger'
+            'It forces them to eat different food',
+            'It destroys their natural habitats',
+            'It protects them from natural predators'
           ],
           correctIndex: 1,
           correctLetter: 'S',
@@ -224,7 +229,7 @@ const GAME_DATA = {
           id: 'r3q4',
           text: 'What kills many marine (ocean) animals?',
           type: 'multiple-choice',
-          options: ['Loud music', 'Plastic pollution', 'Sunlight'],
+          options: ['Rising oxygen levels', 'Plastic pollution', 'Too much salt in the water'],
           correctIndex: 1,
           correctLetter: 'T',
           fakeLetter: 'N',
@@ -236,7 +241,7 @@ const GAME_DATA = {
           id: 'r3q5',
           text: 'Complete the chain: Environmental degradation → habitat damage → biodiversity ___.',
           type: 'multiple-choice',
-          options: ['increase', 'loss', 'change'],
+          options: ['growth', 'loss', 'creation'],
           correctIndex: 1,
           correctLetter: 'E',
           fakeLetter: 'G',
@@ -254,7 +259,7 @@ const GAME_DATA = {
       codeWord: 'GREEN',
       codeHint1: { text: 'Think about the color of nature and sustainability...', penaltyMs: 60000 },
       codeHint2: { text: 'This word is a color. It starts with G and represents nature and eco-friendly living.', penaltyMs: 300000 },
-      finalLetterInstruction: 'Take the 5th letter of GREEN',
+      finalLetterInstruction: 'Take the 5th letter of your code word.',
       finalLetterPosition: 4,
       questions: [
         {
@@ -262,9 +267,9 @@ const GAME_DATA = {
           text: 'What is a carbon footprint?',
           type: 'multiple-choice',
           options: [
-            'A footprint made with carbon paper',
+            'The amount of carbon left in the soil',
             'The amount of greenhouse gases your activities produce',
-            'The size of your shoes'
+            'The amount of energy used by factories'
           ],
           correctIndex: 1,
           correctLetter: 'G',
@@ -278,9 +283,9 @@ const GAME_DATA = {
           text: 'Which of these can REDUCE your ecological footprint?',
           type: 'multiple-choice',
           options: [
-            'Driving alone in a big car every day',
+            'Buying new products made from natural materials',
             'Using renewable energy like solar and wind',
-            'Buying new clothes every week'
+            'Leaving electronics plugged in but turned off'
           ],
           correctIndex: 1,
           correctLetter: 'R',
@@ -294,9 +299,9 @@ const GAME_DATA = {
           text: 'In a linear economy, what happens to products after we use them?',
           type: 'multiple-choice',
           options: [
-            'They are recycled into new products',
-            'They are repaired and reused',
-            'They are thrown away and become waste'
+            'Products are shared between different communities',
+            'Products are kept in a straight line in factories',
+            'Products are thrown away as waste'
           ],
           correctIndex: 2,
           correctLetter: 'E',
@@ -310,9 +315,9 @@ const GAME_DATA = {
           text: 'In a circular economy, instead of throwing things away, we try to ___.',
           type: 'multiple-choice',
           options: [
-            'Burn everything',
-            'Keep materials in use for longer',
-            'Send waste to other countries'
+            'Only use materials that can naturally decompose',
+            'Keep materials in use for as long as possible',
+            'Recycle everything but still make a lot of waste'
           ],
           correctIndex: 1,
           correctLetter: 'E',
@@ -328,7 +333,7 @@ const GAME_DATA = {
           options: [
             'Recycle, Reduce, Reuse',
             'Reduce, Reuse, Recycle',
-            'Reuse, Recycle, Reduce'
+            'Reuse, Reduce, Recycle'
           ],
           correctIndex: 1,
           correctLetter: 'N',
@@ -347,7 +352,7 @@ const GAME_DATA = {
       codeWord: 'TRADE',
       codeHint1: { text: 'Think about buying and selling between countries...', penaltyMs: 60000 },
       codeHint2: { text: 'The word starts with T and means the exchange of goods between countries.', penaltyMs: 300000 },
-      finalLetterInstruction: 'Take the 5th AND 1st letter of TRADE',
+      finalLetterInstruction: 'Take the 5th AND 1st letter of your code word.',
       finalLetterPositions: [4, 0],
       questions: [
         {
@@ -355,9 +360,9 @@ const GAME_DATA = {
           text: 'What is the difference between a policy and a regulation?',
           type: 'multiple-choice',
           options: [
-            'A policy is a plan or goal; a regulation is an official rule or law',
-            'A policy is a law; a regulation is a plan',
-            'They are exactly the same thing'
+            'A policy is a goal; a regulation is an official rule to enforce it',
+            'A policy is local; a regulation is international',
+            'A policy is a punishment; a regulation is a reward'
           ],
           correctIndex: 0,
           correctLetter: 'T',
@@ -370,7 +375,7 @@ const GAME_DATA = {
           id: 'r5q2',
           text: 'When a government gives money to a company for using cleaner energy, this is called a ___.',
           type: 'multiple-choice',
-          options: ['Fine', 'Subsidy', 'Ban'],
+          options: ['Incentive fine', 'Subsidy', 'Tax penalty'],
           correctIndex: 1,
           correctLetter: 'R',
           fakeLetter: 'K',
@@ -383,9 +388,9 @@ const GAME_DATA = {
           text: 'What is a "target-setting accord"?',
           type: 'multiple-choice',
           options: [
-            'An agreement that bans dangerous chemicals',
-            'An agreement that sets environmental goals',
-            'An agreement about buying and selling products'
+            'A law that bans dangerous chemicals',
+            'An agreement that sets specific environmental goals',
+            'A tax on imported goods'
           ],
           correctIndex: 1,
           correctLetter: 'A',
@@ -398,7 +403,7 @@ const GAME_DATA = {
           id: 'r5q4',
           text: 'If a factory pollutes the river, the government can give them a ___.',
           type: 'multiple-choice',
-          options: ['Subsidy', 'Tax break', 'Fine or penalty'],
+          options: ['Regulation tax', 'Environmental subsidy', 'Fine or penalty'],
           correctIndex: 2,
           correctLetter: 'D',
           fakeLetter: 'X',
@@ -412,8 +417,8 @@ const GAME_DATA = {
           type: 'multiple-choice',
           options: [
             'Because environmental problems do not stop at country borders',
-            'Because it is cheaper',
-            'Because one country can solve everything alone'
+            'Because it is cheaper to solve problems together',
+            'Because local governments cannot make environmental laws'
           ],
           correctIndex: 0,
           correctLetter: 'E',
@@ -429,16 +434,7 @@ const GAME_DATA = {
   finalEscape: {
     title: 'The Final Escape',
     icon: '🚀',
-    instructions: 'You opened all 5 doors! Now use your code words to find the FINAL ESCAPE CODE.',
-    steps: [
-      { room: 1, codeWord: 'CROPS', instruction: 'Take the 4th letter of CROPS', letter: 'P' },
-      { room: 2, codeWord: 'SOLAR', instruction: 'Take the 3rd letter of SOLAR', letter: 'L' },
-      { room: 3, codeWord: 'WASTE', instruction: 'Take the 2nd letter of WASTE', letter: 'A' },
-      { room: 4, codeWord: 'GREEN', instruction: 'Take the 5th letter of GREEN', letter: 'N' },
-      { room: 5, codeWord: 'TRADE', instruction: 'Take the 5th letter of TRADE', letter: 'E' },
-      { room: 5, codeWord: 'TRADE', instruction: 'Take the 1st letter of TRADE', letter: 'T' }
-    ],
-    scrambledLetters: ['N', 'T', 'L', 'A', 'P', 'E'],
+    instructions: 'You opened all 5 doors! Take the hint letter from each room to get the final code.',
     answer: 'PLANET',
     celebration: '🎉🌍 CONGRATULATIONS! You escaped and saved the planet! 🌍🎉'
   }

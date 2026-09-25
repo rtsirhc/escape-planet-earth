@@ -13,6 +13,16 @@ let hintsUsed = { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0 };
 
 const $main = document.getElementById('main-container');
 
+// Shuffle array (Fisher-Yates)
+function shuffleArray(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
 // Sound toggle logic
 function toggleSound() {
   const enabled = SoundManager.toggle();
@@ -77,10 +87,8 @@ window.joinGame = async function() {
     team = await createTeam(session.id, name);
     
     if (session.status === 'active') {
-      // Game already started, jump right in
       startGame();
     } else {
-      // Wait for teacher to start
       renderWaitingScreen();
       subscribeToSession(code, (payload) => {
         if (payload.new && payload.new.status === 'active') {
@@ -143,6 +151,19 @@ function renderStoryScreen() {
   `;
 }
 
+// --- Go Back: restart from Room 1 without resetting timer ---
+window.goBackToStart = function() {
+  if (confirm('Go back to Room 1? Your timer will keep running but you can redo all rooms.')) {
+    currentRoomIndex = 0;
+    currentQuestionIndex = 0;
+    collectedLetters = [];
+    allCollectedLetters = [];
+    hintsUsed = { '1': 0, '2': 0, '3': 0, '4': 0, '5': 0 };
+    syncProgress(1, 0);
+    startRoom(0);
+  }
+}
+
 window.startRoom = async function(roomIndex) {
   currentRoomIndex = roomIndex;
   currentQuestionIndex = 0;
@@ -151,7 +172,6 @@ window.startRoom = async function(roomIndex) {
   const room = GAME_DATA.rooms[roomIndex];
   document.getElementById('timer-room').innerHTML = `Room <strong>${roomIndex + 1}</strong>/5`;
   
-  // Calculate progress: Each room is 20%. Inside room, each question is 3%. End code is 5%.
   const baseProgress = roomIndex * 20;
   await syncProgress(roomIndex + 1, baseProgress);
   
@@ -211,22 +231,35 @@ function renderQuestion() {
       </div>
       <div id="hint-display"></div>
     </div>
+
+    <div class="text-center mt-3">
+      <button class="btn btn--danger" style="font-size:0.85rem; padding:8px 18px;" onclick="goBackToStart()">🔄 Restart from Room 1</button>
+    </div>
   `;
 }
 
+// Render collected letters in SCRAMBLED order so students must unscramble
 function renderCollectedLetters() {
+  // Create a scrambled display order
+  const displayLetters = [];
+  for (let i = 0; i < 5; i++) {
+    if (collectedLetters[i]) {
+      displayLetters.push(collectedLetters[i]);
+    }
+  }
+  const scrambled = shuffleArray(displayLetters);
+  
   let slots = '';
   for (let i = 0; i < 5; i++) {
-    const l = collectedLetters[i];
-    if (l) {
-      slots += `<div class="letter-slot filled">${l}</div>`;
+    if (i < scrambled.length) {
+      slots += `<div class="letter-slot filled">${scrambled[i]}</div>`;
     } else {
       slots += `<div class="letter-slot">?</div>`;
     }
   }
   return `
     <div class="text-center mt-2 fade-in">
-      <p class="text-secondary mb-1" style="font-size:0.9rem">Collected Letters</p>
+      <p class="text-secondary mb-1" style="font-size:0.9rem">Collected Letters (scrambled)</p>
       <div class="collected-letters">${slots}</div>
     </div>
   `;
@@ -246,12 +279,10 @@ window.useHint = function() {
   penaltyMs += hintObj.penaltyMs;
   
   SoundManager.hint();
-  syncProgress(room.id, team.progress); // sync penalty
+  syncProgress(room.id, team.progress);
   
-  // Refresh UI for hint
   renderQuestion();
   
-  // Show hint text
   const hintDisplay = document.getElementById('hint-display');
   hintDisplay.innerHTML = `<div class="hint-text">💡 ${hintObj.text}</div>`;
 }
@@ -260,7 +291,6 @@ window.checkAnswer = function(answer) {
   const room = GAME_DATA.rooms[currentRoomIndex];
   const q = room.questions[currentQuestionIndex];
   
-  // Disable all options
   const items = document.querySelectorAll('.option-item, .tf-btn');
   items.forEach(el => el.classList.add('disabled'));
   
@@ -272,14 +302,12 @@ window.checkAnswer = function(answer) {
     isCorrect = (answer === q.correctAnswer);
   }
   
-  // Visual feedback
   const targetEl = event.currentTarget;
   if (isCorrect) {
     targetEl.classList.add('correct');
     SoundManager.correct();
     collectedLetters.push(q.correctLetter);
     
-    // Sync progress (+3% per question)
     const newProg = (currentRoomIndex * 20) + ((currentQuestionIndex + 1) * 3);
     syncProgress(room.id, newProg);
     
@@ -289,7 +317,7 @@ window.checkAnswer = function(answer) {
   } else {
     targetEl.classList.add('wrong');
     SoundManager.wrong();
-    collectedLetters.push(q.fakeLetter); // Give them a fake letter so they fail the code word
+    collectedLetters.push(q.fakeLetter);
     
     setTimeout(() => {
       showLetterReveal(q.fakeLetter, 'Oops... that might not be the right letter.');
@@ -310,7 +338,6 @@ function showLetterReveal(letter, explanation) {
 
 window.nextStep = function() {
   currentQuestionIndex++;
-  const room = GAME_DATA.rooms[currentRoomIndex];
   
   if (currentQuestionIndex < 5) {
     renderQuestion();
@@ -326,7 +353,7 @@ function renderCodeEntry() {
     <div class="room-header fade-in">
       <span class="room-icon">🔐</span>
       <h2>Unlock the Door</h2>
-      <div class="room-topic">Unscramble your collected letters</div>
+      <div class="room-topic">Unscramble your collected letters into a word</div>
     </div>
     
     ${renderCollectedLetters()}
@@ -336,6 +363,10 @@ function renderCodeEntry() {
       <input type="text" id="code-input" class="code-input" maxlength="5" autocomplete="off">
       <div id="code-error" class="join-error"></div>
       <button class="btn btn--large btn--full mt-2" onclick="verifyCode()">Unlock Door</button>
+    </div>
+
+    <div class="text-center mt-3">
+      <button class="btn btn--danger" style="font-size:0.85rem; padding:8px 18px;" onclick="goBackToStart()">🔄 Restart from Room 1</button>
     </div>
   `;
 }
@@ -351,7 +382,7 @@ window.verifyCode = function() {
     SoundManager.unlock();
     errEl.innerText = "";
     
-    // Save final letter for the escape
+    // Save final letter(s) for the escape
     if (room.finalLetterPositions) {
        room.finalLetterPositions.forEach(p => {
          allCollectedLetters.push(room.codeWord[p]);
@@ -360,7 +391,6 @@ window.verifyCode = function() {
       allCollectedLetters.push(room.codeWord[room.finalLetterPosition]);
     }
     
-    // Progress for completing room (+5%)
     const newProg = (currentRoomIndex + 1) * 20;
     syncProgress(room.id, newProg);
     
@@ -370,7 +400,7 @@ window.verifyCode = function() {
   } else {
     inputEl.classList.add('wrong');
     SoundManager.wrong();
-    errEl.innerText = "Incorrect code. If your letters don't form a word, you got a question wrong!";
+    errEl.innerText = "Incorrect code. If your letters don't form a word, you may have a wrong answer. Use the restart button below to try again!";
     setTimeout(() => inputEl.classList.remove('wrong'), 500);
   }
 }
@@ -378,9 +408,9 @@ window.verifyCode = function() {
 function renderRoomComplete(room) {
   $main.innerHTML = `
     <div class="room-complete">
-      <h2>Door Unlocked!</h2>
+      <h2>Door Unlocked! 🔓</h2>
       <div class="code-word">${room.codeWord}</div>
-      <p>Excellent work. Now, save this for the final escape:</p>
+      <p class="text-secondary mt-1">Remember this code word and its hint letter for the final escape!</p>
       
       <div class="final-letter-info">
         <p class="mb-1">${room.finalLetterInstruction}</p>
@@ -389,6 +419,7 @@ function renderRoomComplete(room) {
             room.codeWord[room.finalLetterPositions[0]] + ' & ' + room.codeWord[room.finalLetterPositions[1]] : 
             room.codeWord[room.finalLetterPosition]}
         </div>
+        <p class="text-secondary mt-1" style="font-size:0.85rem">Write this down! You will need it at the end.</p>
       </div>
       
       <button class="btn btn--large btn--full mt-2" onclick="proceedToNextRoom()">
@@ -409,30 +440,28 @@ window.proceedToNextRoom = function() {
 function renderFinalEscape() {
   document.getElementById('timer-room').innerHTML = `<strong>FINAL ESCAPE</strong>`;
   
-  const stepsHtml = GAME_DATA.finalEscape.steps.map(s => `
-    <div class="final-step">
-      <span class="step-room">Room ${s.room}</span>
-      <span class="step-word">${s.codeWord}</span>
-      <span class="step-arrow">→</span>
-      <span class="step-letter">${s.letter}</span>
-    </div>
-  `).join('');
+  // Show scrambled final letters
+  const scrambledFinal = shuffleArray(allCollectedLetters);
 
   $main.innerHTML = `
     <div class="final-escape fade-in">
       <span class="emoji-xl">🚀</span>
       <h2>${GAME_DATA.finalEscape.title}</h2>
-      <p class="mb-3">${GAME_DATA.finalEscape.instructions}</p>
+      <p class="mb-2">${GAME_DATA.finalEscape.instructions}</p>
       
-      <div class="final-steps">
-        ${stepsHtml}
+      <div class="collected-letters mb-3" style="justify-content:center">
+        ${scrambledFinal.map(l => `<div class="letter-slot filled">${l}</div>`).join('')}
       </div>
       
-      <div class="code-entry mt-3">
-        <label>Final Planet Code (6 letters):</label>
+      <div class="code-entry">
+        <label>Final Escape Code (6 letters):</label>
         <input type="text" id="final-code-input" class="code-input" maxlength="6" autocomplete="off" style="width: 100%; max-width: 340px;">
         <div id="final-error" class="join-error"></div>
-        <button class="btn btn--large btn--full mt-2" onclick="verifyFinalCode()">ESCAPE!</button>
+        <button class="btn btn--large btn--full mt-2" onclick="verifyFinalCode()">ESCAPE! 🚀</button>
+      </div>
+
+      <div class="text-center mt-3">
+        <button class="btn btn--danger" style="font-size:0.85rem; padding:8px 18px;" onclick="goBackToStart()">🔄 Restart from Room 1</button>
       </div>
     </div>
   `;
@@ -455,7 +484,7 @@ window.verifyFinalCode = function() {
   } else {
     inputEl.classList.add('wrong');
     SoundManager.wrong();
-    errEl.innerText = "Access Denied. Try unscrambling again!";
+    errEl.innerText = "Access Denied. Unscramble your hint letters!";
     setTimeout(() => inputEl.classList.remove('wrong'), 500);
   }
 }
