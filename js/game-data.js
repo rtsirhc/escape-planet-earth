@@ -20,72 +20,72 @@ const GAME_DATA = {
           text: 'What does sustainability mean?',
           type: 'multiple-choice',
           options: [
-            'Finding new resources on other planets',
+            'Protecting nature by stopping all use of natural resources',
             'Using resources carefully so there is enough for the future',
-            'Stopping all use of natural resources so the earth heals'
+            'Finding new technology to replace all natural resources'
           ],
           correctIndex: 1,
           correctLetter: 'C',
           fakeLetter: 'X',
-          letterExplanation: 'Your letter is C — for Careful! Sustainability means being careful with resources.',
-          hint1: { text: 'Think about the word "tomorrow" and saving things for later.', penaltyMs: 60000 },
+          letterExplanation: 'Your letter is C!',
+          hint1: { text: 'It is not about stopping or replacing — it is about being careful.', penaltyMs: 60000 },
           hint2: { text: 'The correct answer talks about using resources CAREFULLY for the FUTURE.', penaltyMs: 300000 }
         },
         {
           id: 'r1q2',
           text: 'The Triple P stands for People, Planet, and ___.',
           type: 'multiple-choice',
-          options: ['Population', 'Prosperity', 'Production'],
+          options: ['Production', 'Prosperity', 'Protection'],
           correctIndex: 1,
           correctLetter: 'R',
           fakeLetter: 'Z',
-          letterExplanation: 'Your letter is R — Prosperity means having enough Resources and businesses.',
+          letterExplanation: 'Your letter is R!',
           hint1: { text: "It starts with P and it's about money, jobs, and businesses.", penaltyMs: 60000 },
-          hint2: { text: 'The word is PROSPERITY — it means having enough money and success.', penaltyMs: 300000 }
+          hint2: { text: 'The word is PROSPERITY — it means economic success.', penaltyMs: 300000 }
         },
         {
           id: 'r1q3',
-          text: 'Which is an example of the "People" part of sustainability?',
+          text: 'Which is an example of the "People" pillar of sustainability?',
           type: 'multiple-choice',
           options: [
-            'Creating more jobs by cutting down old forests',
-            'Protecting endangered animal species',
-            'Giving everyone access to education and safety'
+            'Giving communities access to safe education and healthcare',
+            'Protecting endangered animal species in nature reserves',
+            'Creating more jobs by building new factories'
           ],
-          correctIndex: 2,
+          correctIndex: 0,
           correctLetter: 'O',
           fakeLetter: 'Q',
-          letterExplanation: 'Your letter is O — peOple deserve education and safety!',
-          hint1: { text: '"People" is about humans, communities, and their needs.', penaltyMs: 60000 },
-          hint2: { text: 'Education and safety are basic needs for PEOPLE, not for Planet or Prosperity.', penaltyMs: 300000 }
+          letterExplanation: 'Your letter is O!',
+          hint1: { text: '"People" is about basic human needs, not animals or business growth.', penaltyMs: 60000 },
+          hint2: { text: 'Education and healthcare are basic needs for PEOPLE.', penaltyMs: 300000 }
         },
         {
           id: 'r1q4',
-          text: 'A resource is something we take from nature. Which of these is a natural resource?',
+          text: 'Which of these is a natural resource?',
           type: 'multiple-choice',
-          options: ['A solar panel', 'Fresh water', 'Recycled plastic'],
+          options: ['A solar panel', 'Fresh water', 'Recycled paper'],
           correctIndex: 1,
           correctLetter: 'P',
           fakeLetter: 'V',
-          letterExplanation: 'Your letter is P — the Planet gives us natural resources like water!',
-          hint1: { text: 'A natural resource comes directly from nature, not from a factory.', penaltyMs: 60000 },
-          hint2: { text: 'Water comes directly from nature. Phones and cars are made in factories.', penaltyMs: 300000 }
+          letterExplanation: 'Your letter is P!',
+          hint1: { text: 'A natural resource comes directly from nature — humans did not create or process it.', penaltyMs: 60000 },
+          hint2: { text: 'Solar panels are manufactured and recycled paper is processed. Only one comes straight from nature.', penaltyMs: 300000 }
         },
         {
           id: 'r1q5',
-          text: 'Which statement about sustainability is true?',
+          text: 'A company plants trees but pays workers very low wages. Is this sustainable?',
           type: 'multiple-choice',
           options: [
-            'It focuses only on protecting the environment',
-            'It requires balancing People, Planet, and Prosperity together',
-            'It means businesses must not make any profit'
+            'Yes, because it helps the Planet pillar',
+            'Yes, because trees create Prosperity',
+            'No, because it ignores the People pillar'
           ],
-          correctIndex: 1,
+          correctIndex: 2,
           correctLetter: 'S',
           fakeLetter: 'W',
-          letterExplanation: "Your letter is S — Sustainability means all three P's working together!",
-          hint1: { text: 'Think about how all three pillars must work together.', penaltyMs: 60000 },
-          hint2: { text: 'Sustainability means ALL THREE must work together, not just one.', penaltyMs: 300000 }
+          letterExplanation: 'Your letter is S!',
+          hint1: { text: 'Sustainability needs ALL three pillars to work together.', penaltyMs: 60000 },
+          hint2: { text: 'Low wages means the People pillar is not being respected.', penaltyMs: 300000 }
         }
       ]
     },
@@ -105,64 +105,68 @@ const GAME_DATA = {
           text: 'What is the difference between weather and climate?',
           type: 'multiple-choice',
           options: [
-            'Weather is measured by temperature; climate is measured by rainfall',
+            'Weather is the long-term pattern; climate is what happens today',
             'Weather is what happens today; climate is the pattern over many years',
-            'Weather changes every year; climate changes every day'
+            'Weather only measures temperature; climate measures everything'
           ],
           correctIndex: 1,
           correctLetter: 'S',
           fakeLetter: 'K',
-          letterExplanation: 'Your letter is S — climate is a long-term System of weather patterns!',
-          hint1: { text: 'One of them is about TODAY, the other is about MANY YEARS.', penaltyMs: 60000 },
-          hint2: { text: 'Weather = what happens today. Climate = the pattern over many, many years.', penaltyMs: 300000 }
+          letterExplanation: 'Your letter is S!',
+          hint1: { text: 'Be careful — the first two options look very similar. Read slowly.', penaltyMs: 60000 },
+          hint2: { text: 'Weather = short-term (today). Climate = long-term (many years).', penaltyMs: 300000 }
         },
         {
           id: 'r2q2',
           text: 'Which of these is a HUMAN cause of climate change?',
           type: 'multiple-choice',
-          options: ['Holes in the ozone layer', 'Burning fossil fuels', 'The natural greenhouse effect'],
+          options: ['Changes in the Earth\'s orbit around the sun', 'Burning fossil fuels for energy', 'Natural volcanic eruptions releasing gases'],
           correctIndex: 1,
           correctLetter: 'O',
           fakeLetter: 'J',
-          letterExplanation: 'Your letter is O — burning fossil fuels releases CO₂ into Our atmosphere!',
-          hint1: { text: 'Think about what humans DO that puts greenhouse gases into the air.', penaltyMs: 60000 },
-          hint2: { text: 'Cars, planes, and factories burn fossil fuels. Volcanoes and earthquakes are natural.', penaltyMs: 300000 }
+          letterExplanation: 'Your letter is O!',
+          hint1: { text: 'Two of these are natural processes. Only one is caused by humans.', penaltyMs: 60000 },
+          hint2: { text: 'Fossil fuels are burned by humans in cars, planes, and factories.', penaltyMs: 300000 }
         },
         {
           id: 'r2q3',
-          text: 'Which gas is a greenhouse gas that comes from cows and agriculture?',
+          text: 'Which greenhouse gas comes mainly from large-scale agriculture and livestock?',
           type: 'multiple-choice',
-          options: ['Carbon monoxide', 'Oxygen', 'Methane'],
-          correctIndex: 2,
+          options: ['Carbon dioxide (CO₂)', 'Methane', 'Water vapor'],
+          correctIndex: 1,
           correctLetter: 'L',
           fakeLetter: 'F',
-          letterExplanation: 'Your letter is L — methane is released from Large-scale agriculture!',
-          hint1: { text: 'This gas starts with M and comes from farms and animals.', penaltyMs: 60000 },
-          hint2: { text: 'METHANE comes from cows and large farms. Oxygen and nitrogen are not greenhouse gases.', penaltyMs: 300000 }
+          letterExplanation: 'Your letter is L!',
+          hint1: { text: 'CO₂ comes mainly from burning fuel. Water vapor is natural. Think about farms and cows.', penaltyMs: 60000 },
+          hint2: { text: 'METHANE comes from cows and rice farming, not from burning fuels.', penaltyMs: 300000 }
         },
         {
           id: 'r2q4',
-          text: 'What happens when glaciers melt because of global warming?',
+          text: 'What is a direct effect of melting glaciers?',
           type: 'multiple-choice',
-          options: ['The oceans become too hot for fish', 'Sea levels rise', 'The world has less drinking water'],
+          options: ['Stronger hurricanes and storms', 'Rising sea levels', 'More droughts in farmlands'],
           correctIndex: 1,
           correctLetter: 'A',
           fakeLetter: 'U',
-          letterExplanation: 'Your letter is A — melting glaciers Add more water to the oceans!',
-          hint1: { text: 'Glaciers are made of ice. When ice melts, it becomes water. Where does the water go?', penaltyMs: 60000 },
-          hint2: { text: 'Melting ice → more water in the ocean → SEA LEVELS RISE.', penaltyMs: 300000 }
+          letterExplanation: 'Your letter is A!',
+          hint1: { text: 'All of these are effects of climate change, but only one is a DIRECT result of ice melting.', penaltyMs: 60000 },
+          hint2: { text: 'When ice melts, it becomes water. Where does the extra water go?', penaltyMs: 300000 }
         },
         {
           id: 'r2q5',
-          text: 'Cutting down large areas of trees is called ___.',
+          text: 'Deforestation contributes to climate change because ___.',
           type: 'multiple-choice',
-          options: ['Polluting the soil', 'Urbanization', 'Deforestation'],
-          correctIndex: 2,
+          options: [
+            'fewer trees means less oxygen for animals',
+            'fewer trees means less CO₂ is absorbed from the air',
+            'fewer trees means the soil becomes too dry'
+          ],
+          correctIndex: 1,
           correctLetter: 'R',
           fakeLetter: 'M',
-          letterExplanation: 'Your letter is R — defoRestation destroys forests and habitats!',
-          hint1: { text: 'The word has "forest" inside it, plus a prefix that means "remove."', penaltyMs: 60000 },
-          hint2: { text: 'DE-FOREST-ATION. "De" means remove. Removing forests = deforestation.', penaltyMs: 300000 }
+          letterExplanation: 'Your letter is R!',
+          hint1: { text: 'Think about what trees do with CO₂ — they absorb it. What happens when they are gone?', penaltyMs: 60000 },
+          hint2: { text: 'Trees absorb CO₂. Fewer trees = more CO₂ stays in the atmosphere = more warming.', penaltyMs: 300000 }
         }
       ]
     },
@@ -182,72 +186,80 @@ const GAME_DATA = {
           text: 'What is environmental degradation?',
           type: 'multiple-choice',
           options: [
-            'When animals move to different habitats',
-            'The destruction of nature by damaging air, water, and soil',
-            'The natural process of old trees dying'
+            'When ecosystems slowly change due to natural seasons',
+            'When human activities cause damage to air, water, and soil',
+            'When animals migrate to find better habitats'
           ],
           correctIndex: 1,
           correctLetter: 'W',
           fakeLetter: 'Y',
-          letterExplanation: "Your letter is W — degradation means the World's environment is being damaged!",
-          hint1: { text: 'The word "degradation" means something getting worse or being destroyed.', penaltyMs: 60000 },
-          hint2: { text: 'It means DAMAGE and DESTRUCTION to air, water, and soil — not building or studying.', penaltyMs: 300000 }
+          letterExplanation: 'Your letter is W!',
+          hint1: { text: 'The other two describe natural processes. Degradation is about damage.', penaltyMs: 60000 },
+          hint2: { text: 'Degradation means getting worse — it is DAMAGE caused by HUMANS.', penaltyMs: 300000 }
         },
         {
           id: 'r3q2',
-          text: 'What is biodiversity?',
+          text: 'What does "biodiversity" mean?',
           type: 'multiple-choice',
           options: [
-            'A special type of eco-friendly farming',
-            'The variety of plant and animal life on Earth',
-            'The study of biology in schools'
+            'The total number of animals in one specific habitat',
+            'The variety of ALL different living things on Earth',
+            'The balance between predators and prey in nature'
           ],
           correctIndex: 1,
           correctLetter: 'A',
           fakeLetter: 'B',
-          letterExplanation: 'Your letter is A — biodiversity is About All the different Animals and plants!',
-          hint1: { text: '"Bio" means life. "Diversity" means variety. Put them together!', penaltyMs: 60000 },
-          hint2: { text: 'Bio (life) + diversity (variety) = the VARIETY of plants and animals on Earth.', penaltyMs: 300000 }
+          letterExplanation: 'Your letter is A!',
+          hint1: { text: '"Bio" means life. "Diversity" means variety. It is not limited to one habitat or one relationship.', penaltyMs: 60000 },
+          hint2: { text: 'Biodiversity = the VARIETY of ALL life — plants, animals, fungi, bacteria — everywhere on Earth.', penaltyMs: 300000 }
         },
         {
           id: 'r3q3',
-          text: 'How does deforestation affect animals?',
+          text: 'Deforestation causes biodiversity loss because ___.',
           type: 'multiple-choice',
           options: [
-            'It forces them to eat different food',
-            'It destroys their natural habitats',
-            'It protects them from natural predators'
+            'animals become more aggressive without trees',
+            'it destroys the natural habitats where species live',
+            'it increases the temperature inside forests'
           ],
           correctIndex: 1,
           correctLetter: 'S',
           fakeLetter: 'D',
-          letterExplanation: 'Your letter is S — animals lose their Safe homes when forests are destroyed!',
-          hint1: { text: 'A habitat is where an animal lives. What happens when you cut down the trees?', penaltyMs: 60000 },
-          hint2: { text: 'Animals live in forests. Cut the forest → animals lose their HOME (habitat).', penaltyMs: 300000 }
+          letterExplanation: 'Your letter is S!',
+          hint1: { text: 'Think about what a forest provides for animals — a home. What happens when it is gone?', penaltyMs: 60000 },
+          hint2: { text: 'No forest = no habitat = animals have nowhere to live = biodiversity LOSS.', penaltyMs: 300000 }
         },
         {
           id: 'r3q4',
-          text: 'What kills many marine (ocean) animals?',
+          text: 'Plastic pollution is especially dangerous for marine life because ___.',
           type: 'multiple-choice',
-          options: ['Rising oxygen levels', 'Plastic pollution', 'Too much salt in the water'],
+          options: [
+            'plastic makes the ocean water warmer',
+            'animals eat it or get trapped in it',
+            'plastic blocks sunlight from reaching the ocean floor'
+          ],
           correctIndex: 1,
           correctLetter: 'T',
           fakeLetter: 'N',
-          letterExplanation: 'Your letter is T — Trash and plastic pollution is Terrible for ocean life!',
-          hint1: { text: 'Think about what humans throw away that ends up in the ocean.', penaltyMs: 60000 },
-          hint2: { text: 'PLASTIC POLLUTION — plastic bags, bottles, and trash kill fish, turtles, and birds.', penaltyMs: 300000 }
+          letterExplanation: 'Your letter is T!',
+          hint1: { text: 'Think about what happens when a sea turtle sees a plastic bag — it looks like a jellyfish.', penaltyMs: 60000 },
+          hint2: { text: 'Animals EAT plastic (thinking it is food) or get TRAPPED in plastic waste.', penaltyMs: 300000 }
         },
         {
           id: 'r3q5',
-          text: 'Complete the chain: Environmental degradation → habitat damage → biodiversity ___.',
+          text: 'What is the correct order of this cause-and-effect chain?',
           type: 'multiple-choice',
-          options: ['growth', 'loss', 'creation'],
-          correctIndex: 1,
+          options: [
+            'Biodiversity loss → habitat damage → environmental degradation',
+            'Habitat damage → environmental degradation → biodiversity loss',
+            'Environmental degradation → habitat damage → biodiversity loss'
+          ],
+          correctIndex: 2,
           correctLetter: 'E',
           fakeLetter: 'G',
-          letterExplanation: 'Your letter is E — the Environment suffers biodiversity LOSS when habitats are destroyed.',
-          hint1: { text: 'When habitats are damaged, do animals increase or decrease?', penaltyMs: 60000 },
-          hint2: { text: 'Damage to habitats = animals and plants disappear = biodiversity LOSS.', penaltyMs: 300000 }
+          letterExplanation: 'Your letter is E!',
+          hint1: { text: 'What comes first — the big environmental problem, or the loss of species?', penaltyMs: 60000 },
+          hint2: { text: 'First the environment gets damaged → then habitats are destroyed → then species disappear.', penaltyMs: 300000 }
         }
       ]
     },
@@ -264,83 +276,83 @@ const GAME_DATA = {
       questions: [
         {
           id: 'r4q1',
-          text: 'What is a carbon footprint?',
+          text: 'Your carbon footprint measures ___.',
           type: 'multiple-choice',
           options: [
-            'The amount of carbon left in the soil',
-            'The amount of greenhouse gases your activities produce',
-            'The amount of energy used by factories'
+            'the total energy you use at home each month',
+            'the amount of greenhouse gases produced by your activities',
+            'how much carbon is in the food you eat'
           ],
           correctIndex: 1,
           correctLetter: 'G',
           fakeLetter: 'H',
-          letterExplanation: 'Your letter is G — your carbon footprint measures Greenhouse Gases from your life!',
-          hint1: { text: "It's about the gases that your daily life creates — driving, eating, using electricity.", penaltyMs: 60000 },
-          hint2: { text: 'Your carbon footprint = the GREENHOUSE GASES produced by your activities.', penaltyMs: 300000 }
+          letterExplanation: 'Your letter is G!',
+          hint1: { text: 'It is not just about energy or food — it covers ALL your daily activities.', penaltyMs: 60000 },
+          hint2: { text: 'Carbon footprint = the total GREENHOUSE GASES from everything you do.', penaltyMs: 300000 }
         },
         {
           id: 'r4q2',
-          text: 'Which of these can REDUCE your ecological footprint?',
+          text: 'Which action reduces your ecological footprint?',
           type: 'multiple-choice',
           options: [
-            'Buying new products made from natural materials',
-            'Using renewable energy like solar and wind',
-            'Leaving electronics plugged in but turned off'
+            'Buying organic food shipped from another continent',
+            'Using solar energy to power your home',
+            'Replacing old electronics with the newest models'
           ],
           correctIndex: 1,
           correctLetter: 'R',
           fakeLetter: 'I',
-          letterExplanation: 'Your letter is R — Renewable energy Reduces your footprint!',
-          hint1: { text: 'Which option is GOOD for the planet and uses LESS resources?', penaltyMs: 60000 },
-          hint2: { text: "Solar and wind energy are RENEWABLE — they don't run out and don't pollute.", penaltyMs: 300000 }
+          letterExplanation: 'Your letter is R!',
+          hint1: { text: 'Organic food from far away still has a big transport footprint. New electronics create waste.', penaltyMs: 60000 },
+          hint2: { text: 'Solar energy is renewable and local — no transport, no fossil fuels.', penaltyMs: 300000 }
         },
         {
           id: 'r4q3',
-          text: 'In a linear economy, what happens to products after we use them?',
+          text: 'What makes a linear economy different from a circular economy?',
           type: 'multiple-choice',
           options: [
-            'Products are shared between different communities',
-            'Products are kept in a straight line in factories',
-            'Products are thrown away as waste'
+            'In a linear economy, products are shared between people',
+            'In a linear economy, materials are recycled into new products',
+            'In a linear economy, products become waste after use'
           ],
           correctIndex: 2,
           correctLetter: 'E',
           fakeLetter: 'O',
-          letterExplanation: 'Your letter is E — a linear Economy Ends with waste: take, make, use, throw away!',
-          hint1: { text: '"Linear" means a straight line — things go in one direction, from start to END.', penaltyMs: 60000 },
-          hint2: { text: 'Linear economy: Take → Make → Use → THROW AWAY. Products become waste.', penaltyMs: 300000 }
+          letterExplanation: 'Your letter is E!',
+          hint1: { text: '"Linear" = a straight line from start to end. "Circular" = going around again.', penaltyMs: 60000 },
+          hint2: { text: 'Linear: take → make → use → THROW AWAY. That is the "straight line."', penaltyMs: 300000 }
         },
         {
           id: 'r4q4',
-          text: 'In a circular economy, instead of throwing things away, we try to ___.',
+          text: 'A circular economy tries to ___.',
           type: 'multiple-choice',
           options: [
-            'Only use materials that can naturally decompose',
-            'Keep materials in use for as long as possible',
-            'Recycle everything but still make a lot of waste'
+            'produce only biodegradable products',
+            'keep materials in use for as long as possible',
+            'replace all plastic with natural materials'
           ],
           correctIndex: 1,
           correctLetter: 'E',
           fakeLetter: 'L',
-          letterExplanation: 'Your letter is E — a circular Economy keeps Everything in use longer!',
-          hint1: { text: '"Circular" means going around in a circle — use, reuse, repeat!', penaltyMs: 60000 },
-          hint2: { text: 'Circular = keep using things again and again. Reuse, repair, recycle!', penaltyMs: 300000 }
+          letterExplanation: 'Your letter is E!',
+          hint1: { text: 'It is not about specific materials — it is about using everything LONGER.', penaltyMs: 60000 },
+          hint2: { text: 'Circular = keep using, repairing, and recycling — materials stay in the loop.', penaltyMs: 300000 }
         },
         {
           id: 'r4q5',
-          text: 'What is the correct order of the 3Rs (from most important to least important)?',
+          text: 'The 3Rs in order from most to least important are:',
           type: 'multiple-choice',
           options: [
-            'Recycle, Reduce, Reuse',
+            'Reuse, Reduce, Recycle',
             'Reduce, Reuse, Recycle',
-            'Reuse, Reduce, Recycle'
+            'Reduce, Recycle, Reuse'
           ],
           correctIndex: 1,
           correctLetter: 'N',
           fakeLetter: 'P',
-          letterExplanation: 'Your letter is N — first reduce, theN reuse, theN recycle!',
-          hint1: { text: 'The BEST thing is to use LESS. The second best is to use AGAIN. What comes last?', penaltyMs: 60000 },
-          hint2: { text: 'REDUCE first (use less) → then REUSE (use again) → then RECYCLE (make new).', penaltyMs: 300000 }
+          letterExplanation: 'Your letter is N!',
+          hint1: { text: 'The best action is to NOT create waste at all. What word means using less?', penaltyMs: 60000 },
+          hint2: { text: 'REDUCE (use less) is #1, then REUSE (use again), then RECYCLE (make new).', penaltyMs: 300000 }
         }
       ]
     },
@@ -360,72 +372,76 @@ const GAME_DATA = {
           text: 'What is the difference between a policy and a regulation?',
           type: 'multiple-choice',
           options: [
-            'A policy is a goal; a regulation is an official rule to enforce it',
-            'A policy is local; a regulation is international',
-            'A policy is a punishment; a regulation is a reward'
+            'A policy sets a goal; a regulation is a law that enforces it',
+            'A policy is made by businesses; a regulation is made by people',
+            'A policy is international; a regulation is only local'
           ],
           correctIndex: 0,
           correctLetter: 'T',
           fakeLetter: 'J',
-          letterExplanation: 'Your letter is T — regulaTions are official rules That enforce policies!',
-          hint1: { text: 'One is a GOAL (what we want). The other is a RULE (how we enforce it).', penaltyMs: 60000 },
-          hint2: { text: 'POLICY = a plan or goal. REGULATION = an official rule or law to enforce it.', penaltyMs: 300000 }
+          letterExplanation: 'Your letter is T!',
+          hint1: { text: 'Think: goal vs. rule. Which one sets direction and which one enforces?', penaltyMs: 60000 },
+          hint2: { text: 'POLICY = a plan/goal. REGULATION = an official rule/law to enforce it.', penaltyMs: 300000 }
         },
         {
           id: 'r5q2',
-          text: 'When a government gives money to a company for using cleaner energy, this is called a ___.',
+          text: 'A government gives a company money for switching to clean energy. This is called a ___.',
           type: 'multiple-choice',
-          options: ['Incentive fine', 'Subsidy', 'Tax penalty'],
+          options: ['Tax break', 'Subsidy', 'Carbon credit'],
           correctIndex: 1,
           correctLetter: 'R',
           fakeLetter: 'K',
-          letterExplanation: 'Your letter is R — a subsidy is a Reward for doing the Right thing!',
-          hint1: { text: "The government is GIVING money, not taking it. It's a reward, not a punishment.", penaltyMs: 60000 },
-          hint2: { text: 'A SUBSIDY is when the government gives money to support good behavior.', penaltyMs: 300000 }
+          letterExplanation: 'Your letter is R!',
+          hint1: { text: 'A tax break reduces taxes. A carbon credit is a trading system. Which one means the government GIVES money?', penaltyMs: 60000 },
+          hint2: { text: 'A SUBSIDY = the government directly gives money to support a good action.', penaltyMs: 300000 }
         },
         {
           id: 'r5q3',
-          text: 'What is a "target-setting accord"?',
+          text: 'A "target-setting accord" is an international agreement that ___.',
           type: 'multiple-choice',
           options: [
-            'A law that bans dangerous chemicals',
-            'An agreement that sets specific environmental goals',
-            'A tax on imported goods'
+            'bans specific harmful substances worldwide',
+            'sets specific environmental goals for countries to reach',
+            'controls the trade of dangerous waste between countries'
           ],
           correctIndex: 1,
           correctLetter: 'A',
           fakeLetter: 'F',
-          letterExplanation: 'Your letter is A — an Accord is an Agreement that sets environmental goals!',
-          hint1: { text: 'Look at the name: "target-SETTING" — it SETS targets (goals).', penaltyMs: 60000 },
-          hint2: { text: 'Target-setting = setting goals. An accord that SETS ENVIRONMENTAL GOALS.', penaltyMs: 300000 }
+          letterExplanation: 'Your letter is A!',
+          hint1: { text: 'Look at the name carefully: "target-SETTING." What does "setting targets" mean?', penaltyMs: 60000 },
+          hint2: { text: 'Target-setting = establishing goals. Not banning, not trading — SETTING GOALS.', penaltyMs: 300000 }
         },
         {
           id: 'r5q4',
-          text: 'If a factory pollutes the river, the government can give them a ___.',
+          text: 'A factory illegally dumps chemicals in a river. The government should ___.',
           type: 'multiple-choice',
-          options: ['Regulation tax', 'Environmental subsidy', 'Fine or penalty'],
+          options: [
+            'give them a subsidy to build a water filter',
+            'create a new policy about river protection',
+            'give them a fine or penalty for breaking the law'
+          ],
           correctIndex: 2,
           correctLetter: 'D',
           fakeLetter: 'X',
-          letterExplanation: 'Your letter is D — polluters must pay! A fine is a punishment for Doing Damage.',
-          hint1: { text: 'Pollution is BAD. The government wants to PUNISH bad behavior.', penaltyMs: 60000 },
-          hint2: { text: 'A FINE or PENALTY = you must PAY MONEY because you broke the rules.', penaltyMs: 300000 }
+          letterExplanation: 'Your letter is D!',
+          hint1: { text: 'They already broke the law. A subsidy rewards good behavior. A new policy is too slow.', penaltyMs: 60000 },
+          hint2: { text: 'When you break a law, you get PUNISHED — a FINE or PENALTY.', penaltyMs: 300000 }
         },
         {
           id: 'r5q5',
-          text: 'Why do countries need international environmental agreements?',
+          text: 'Why do environmental problems require international agreements?',
           type: 'multiple-choice',
           options: [
-            'Because environmental problems do not stop at country borders',
-            'Because it is cheaper to solve problems together',
-            'Because local governments cannot make environmental laws'
+            'Because local governments do not have enough money to act alone',
+            'Because pollution and climate change cross country borders',
+            'Because international agreements are easier to enforce than local laws'
           ],
-          correctIndex: 0,
+          correctIndex: 1,
           correctLetter: 'E',
           fakeLetter: 'H',
-          letterExplanation: 'Your letter is E — Environmental problems affect Everyone, across Every border!',
-          hint1: { text: "Air pollution, ocean pollution, and climate change don't have passports!", penaltyMs: 60000 },
-          hint2: { text: 'Environmental problems CROSS BORDERS — pollution in one country affects other countries too.', penaltyMs: 300000 }
+          letterExplanation: 'Your letter is E!',
+          hint1: { text: 'Think about air pollution — does it stop at the border?', penaltyMs: 60000 },
+          hint2: { text: 'Environmental problems CROSS BORDERS — what one country does affects others.', penaltyMs: 300000 }
         }
       ]
     }
@@ -434,7 +450,7 @@ const GAME_DATA = {
   finalEscape: {
     title: 'The Final Escape',
     icon: '🚀',
-    instructions: 'You opened all 5 doors! Take the hint letter from each room to get the final code.',
+    instructions: 'You opened all 5 doors! Use the hint letters you collected from each room to figure out the final escape code.',
     answer: 'PLANET',
     celebration: '🎉🌍 CONGRATULATIONS! You escaped and saved the planet! 🌍🎉'
   }

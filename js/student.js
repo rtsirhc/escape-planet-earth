@@ -410,7 +410,6 @@ function renderRoomComplete(room) {
     <div class="room-complete">
       <h2>Door Unlocked! 🔓</h2>
       <div class="code-word">${room.codeWord}</div>
-      <p class="text-secondary mt-1">Remember this code word and its hint letter for the final escape!</p>
       
       <div class="final-letter-info">
         <p class="mb-1">${room.finalLetterInstruction}</p>
@@ -419,7 +418,6 @@ function renderRoomComplete(room) {
             room.codeWord[room.finalLetterPositions[0]] + ' & ' + room.codeWord[room.finalLetterPositions[1]] : 
             room.codeWord[room.finalLetterPosition]}
         </div>
-        <p class="text-secondary mt-1" style="font-size:0.85rem">Write this down! You will need it at the end.</p>
       </div>
       
       <button class="btn btn--large btn--full mt-2" onclick="proceedToNextRoom()">
@@ -440,18 +438,11 @@ window.proceedToNextRoom = function() {
 function renderFinalEscape() {
   document.getElementById('timer-room').innerHTML = `<strong>FINAL ESCAPE</strong>`;
   
-  // Show scrambled final letters
-  const scrambledFinal = shuffleArray(allCollectedLetters);
-
   $main.innerHTML = `
     <div class="final-escape fade-in">
       <span class="emoji-xl">🚀</span>
       <h2>${GAME_DATA.finalEscape.title}</h2>
       <p class="mb-2">${GAME_DATA.finalEscape.instructions}</p>
-      
-      <div class="collected-letters mb-3" style="justify-content:center">
-        ${scrambledFinal.map(l => `<div class="letter-slot filled">${l}</div>`).join('')}
-      </div>
       
       <div class="code-entry">
         <label>Final Escape Code (6 letters):</label>
