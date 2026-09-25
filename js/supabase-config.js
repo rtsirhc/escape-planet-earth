@@ -2,13 +2,13 @@
 const SUPABASE_URL = 'https://cchuhlopvahndvlcafec.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNjaHVobG9wdmFobmR2bGNhZmVjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAzMDM0MzcsImV4cCI6MjEwNTg3OTQzN30.Jeo4mbbBzVDQOou38_PEqfP5E5ivLw198Psvge2E8gU';
 
-let supabase;
+let supabaseClient;
 
 function initSupabase() {
-  if (!supabase) {
-    supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  if (!supabaseClient) {
+    supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
   }
-  return supabase;
+  return supabaseClient;
 }
 
 // --- Session Management ---
